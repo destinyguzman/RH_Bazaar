@@ -15,9 +15,6 @@ public class VoiceRecording : MonoBehaviour
     void Start()
     {
         device = Microphone.devices[0];
-        //AudioSource audioSource = GetComponent<AudioSource>();
-        //audioSource.clip = Microphone.Start(device, false, 10, 44100);
-        //audioSource.Play();
     }
 
     void Update()
@@ -40,9 +37,9 @@ public class VoiceRecording : MonoBehaviour
     {
         if (!isRecording)
         {
-            recordedClip = Microphone.Start(device, false, 10, 44100);
+            recordedClip = Microphone.Start(device, true, 60, 44100);
             audioSource.clip = recordedClip;
-            //isRecording = true;
+            isRecording = true;
         }
     }
 
@@ -69,6 +66,11 @@ public class VoiceRecording : MonoBehaviour
 
     [ContextMenu("play")]
     public void playRecording()
+    {
+        audioSource.Play();
+    }
+
+    public void playRecording(InputAction.CallbackContext action)
     {
         audioSource.Play();
     }

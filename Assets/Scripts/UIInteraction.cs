@@ -7,6 +7,7 @@ public class UIInteraction : MonoBehaviour
 {
     public InputActionReference leftTrigger;
     public InputActionReference rightTrigger;
+    public InputActionReference leftPrimary;
     public VoiceRecording voiceRecorder;
 
 
@@ -15,6 +16,7 @@ public class UIInteraction : MonoBehaviour
     {
         leftTrigger.action.performed += voiceRecorder.StartRecording;
         rightTrigger.action.performed += voiceRecorder.StopRecording;
+        leftPrimary.action.performed += voiceRecorder.playRecording;
     }
 
     void printHello(InputAction.CallbackContext action)
