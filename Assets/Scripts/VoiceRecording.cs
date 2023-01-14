@@ -14,7 +14,7 @@ public class VoiceRecording : MonoBehaviour
 
     void Start()
     {
-        device = Microphone.devices[0];
+        device = Microphone.devices[1];
     }
 
     void Update()
@@ -50,7 +50,6 @@ public class VoiceRecording : MonoBehaviour
         {
             isRecording = false;
             Microphone.End(device);
-            audioSource.clip = recordedClip;
         }
     }
 
