@@ -12,8 +12,6 @@ public class TeleportManager : MonoBehaviour
         // Update other objects position and rotation
         Player.transform.position = Destination.transform.position;
         Player.transform.rotation = Destination.transform.rotation;
-
-        Debug.Log("Collide");
     }
 
 }

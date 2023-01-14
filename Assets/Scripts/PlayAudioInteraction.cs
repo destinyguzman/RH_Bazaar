@@ -10,4 +10,9 @@ public class PlayAudioInteraction : MonoBehaviour
     {
         playSound.Play();
     }
+
+    public void OnTriggerExit(Collider other)
+    {
+        playSound.Stop();
+    }
 }
