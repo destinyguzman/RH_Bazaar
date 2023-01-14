@@ -10,7 +10,6 @@ public class UIInteraction : MonoBehaviour
     public InputActionReference leftPrimary;
     public VoiceRecording voiceRecorder;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -19,15 +18,10 @@ public class UIInteraction : MonoBehaviour
         leftPrimary.action.performed += voiceRecorder.playRecording;
     }
 
+    
+
     void printHello(InputAction.CallbackContext action)
     {
         Debug.Log("hello");
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

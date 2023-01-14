@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class VoiceRecording : MonoBehaviour
 {
+    public GameObject tile;
+    public GameObject xrRig;
     public AudioSource audioSource;
     private AudioClip recordedClip;
 
@@ -22,16 +24,9 @@ public class VoiceRecording : MonoBehaviour
         var devices = Microphone.devices;
     }
 
-    [ContextMenu("Start recordnig")]
-    public void StartRecording()
-    {
-        if (!isRecording)
-        {
-            recordedClip = Microphone.Start(device, false, 10, 44100);
-            audioSource.clip = recordedClip;
-            //isRecording = true;
-        }
-    }
+    //
+    // Audio recording modules
+    //
 
     public void StartRecording(InputAction.CallbackContext action)
     {
@@ -43,17 +38,56 @@ public class VoiceRecording : MonoBehaviour
         }
     }
 
-    [ContextMenu("Stop recordnig")]
-    public void StopRecording( )
+    public void StopRecording(InputAction.CallbackContext action)
     {
         if (isRecording)
         {
             isRecording = false;
             Microphone.End(device);
+            instantiateTile(recordedClip);
         }
     }
 
-    public void StopRecording(InputAction.CallbackContext action)
+    public void playRecording(InputAction.CallbackContext action)
+    {
+        audioSource.Play();
+    }
+
+
+    //
+    // Instantiate tile
+    //
+    public void instantiateTile(AudioClip clip)
+    {
+        GameObject newTile = Instantiate(tile) as GameObject;
+        newTile.transform.position = this.transform.position;
+        AudioSource audioSource = newTile.GetComponent<AudioSource>();
+        audioSource.playOnAwake = false; 
+        audioSource.clip = clip;
+    }
+
+
+
+
+    [ContextMenu("play")]
+    public void playRecording()
+    {
+        audioSource.Play();
+    }
+
+    [ContextMenu("Start recordnig")]
+    public void StartRecording()
+    {
+        if (!isRecording)
+        {
+            recordedClip = Microphone.Start(device, false, 10, 44100);
+            audioSource.clip = recordedClip;
+            //isRecording = true;
+        }
+    }
+
+    [ContextMenu("Stop recordnig")]
+    public void StopRecording()
     {
         if (isRecording)
         {
@@ -62,15 +96,6 @@ public class VoiceRecording : MonoBehaviour
             audioSource.clip = recordedClip;
         }
     }
-
-    [ContextMenu("play")]
-    public void playRecording()
-    {
-        audioSource.Play();
-    }
-
-    public void playRecording(InputAction.CallbackContext action)
-    {
-        audioSource.Play();
-    }
+    
+    
 }
