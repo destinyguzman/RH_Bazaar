@@ -13,8 +13,8 @@ public class UIInteraction : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //leftTrigger.action.performed += voiceRecorder.StartRecording;
-        //rightTrigger.action.performed += voiceRecorder.StopRecording;
+        leftTrigger.action.performed += voiceRecorder.StartRecording;
+        rightTrigger.action.performed += voiceRecorder.StopRecording;
     }
 
     void printHello(InputAction.CallbackContext action)

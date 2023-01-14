@@ -22,6 +22,7 @@ public class VoiceRecording : MonoBehaviour
 
     void Update()
     {
+        var devices = Microphone.devices;
     }
 
     [ContextMenu("Start recordnig")]
@@ -29,13 +30,34 @@ public class VoiceRecording : MonoBehaviour
     {
         if (!isRecording)
         {
-            recordedClip = Microphone.Start(device, true, 10, 44100);
-            isRecording = true;
+            recordedClip = Microphone.Start(device, false, 10, 44100);
+            audioSource.clip = recordedClip;
+            //isRecording = true;
+        }
+    }
+
+    public void StartRecording(InputAction.CallbackContext action)
+    {
+        if (!isRecording)
+        {
+            recordedClip = Microphone.Start(device, false, 10, 44100);
+            audioSource.clip = recordedClip;
+            //isRecording = true;
         }
     }
 
     [ContextMenu("Stop recordnig")]
     public void StopRecording( )
+    {
+        if (isRecording)
+        {
+            isRecording = false;
+            Microphone.End(device);
+            audioSource.clip = recordedClip;
+        }
+    }
+
+    public void StopRecording(InputAction.CallbackContext action)
     {
         if (isRecording)
         {
