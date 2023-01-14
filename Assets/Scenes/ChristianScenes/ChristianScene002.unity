@@ -835,6 +835,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1815070793}
+  - {fileID: 598345033}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 122.079, z: 0}
@@ -1251,42 +1252,42 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 317824819}
     m_Modifications:
     - target: {fileID: 4631519540540548842, guid: b1a8091b9c785ce4d910916bb29e03bc,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4631519540540548842, guid: b1a8091b9c785ce4d910916bb29e03bc,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.2811203
-      objectReference: {fileID: 0}
-    - target: {fileID: 4631519540540548842, guid: b1a8091b9c785ce4d910916bb29e03bc,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.4980276
-      objectReference: {fileID: 0}
-    - target: {fileID: 4631519540540548842, guid: b1a8091b9c785ce4d910916bb29e03bc,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 11.167787
-      objectReference: {fileID: 0}
-    - target: {fileID: 4631519540540548842, guid: b1a8091b9c785ce4d910916bb29e03bc,
-        type: 3}
-      propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4631519540540548842, guid: b1a8091b9c785ce4d910916bb29e03bc,
         type: 3}
-      propertyPath: m_LocalRotation.x
+      propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4631519540540548842, guid: b1a8091b9c785ce4d910916bb29e03bc,
         type: 3}
-      propertyPath: m_LocalRotation.y
+      propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631519540540548842, guid: b1a8091b9c785ce4d910916bb29e03bc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631519540540548842, guid: b1a8091b9c785ce4d910916bb29e03bc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.48420402
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631519540540548842, guid: b1a8091b9c785ce4d910916bb29e03bc,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631519540540548842, guid: b1a8091b9c785ce4d910916bb29e03bc,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.8749551
       objectReference: {fileID: 0}
     - target: {fileID: 4631519540540548842, guid: b1a8091b9c785ce4d910916bb29e03bc,
         type: 3}
@@ -1308,6 +1309,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4631519540540548843, guid: b1a8091b9c785ce4d910916bb29e03bc,
+        type: 3}
+      propertyPath: Priority
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631519540540548843, guid: b1a8091b9c785ce4d910916bb29e03bc,
+        type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4631519540540548852, guid: b1a8091b9c785ce4d910916bb29e03bc,
         type: 3}
       propertyPath: m_Name
@@ -1327,6 +1338,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c3112f21c2cb91468168aa351134920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &598345033 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4631519540540548842, guid: b1a8091b9c785ce4d910916bb29e03bc,
+    type: 3}
+  m_PrefabInstance: {fileID: 598345031}
+  m_PrefabAsset: {fileID: 0}
 --- !u!64 &610401430
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2684,6 +2701,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: XR Interaction Manager (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2274914280080821596, guid: d75b7857c84119548b15017d9533dee7,
+        type: 3}
+      propertyPath: leftPrimary
+      value: 
+      objectReference: {fileID: -4514914497160888573, guid: c348712bda248c246b8c49b3db54643f,
+        type: 3}
     - target: {fileID: 2274914280080821596, guid: d75b7857c84119548b15017d9533dee7,
         type: 3}
       propertyPath: voiceRecorder
