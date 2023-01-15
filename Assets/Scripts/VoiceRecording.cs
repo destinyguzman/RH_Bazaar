@@ -64,13 +64,14 @@ public class VoiceRecording : MonoBehaviour
     {
         GameObject newTile = Instantiate(tile) as GameObject;
 
+        // Set render material
         int index = Random.Range(0, materials.Length - 1);
         MeshRenderer renderer = newTile.GetComponent<MeshRenderer>();
         Material[] renderMaterials = renderer.materials;
         renderMaterials[0] = materials[index];
         renderer.materials = renderMaterials;
 
-
+        // Set initial position and audio clip
         var tilePosition = new Vector3(this.transform.position.x, this.transform.position.y - 1.5f, this.transform.position.z);
         newTile.transform.position = tilePosition;
         AudioSource audioSource = newTile.GetComponent<AudioSource>();
