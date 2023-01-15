@@ -9,12 +9,17 @@ public class VoiceRecording : MonoBehaviour
     public GameObject tile;
     public GameObject xrRig;
     public AudioSource audioSource;
-    private AudioClip recordedClip;
+    public Material[] materials;
 
+    private AudioClip recordedClip;
     private string device;
     private bool isRecording;
+    private GameObject newTile;
+    private GameObject newTileCore;
+    private Animator tileAnimation;
+    private AudioClip storedClip;
 
-    public Material[] materials;
+    
 
 
     void Start()
@@ -38,6 +43,7 @@ public class VoiceRecording : MonoBehaviour
             recordedClip = Microphone.Start(device, true, 60, 44100);
             audioSource.clip = recordedClip;
             isRecording = true;
+            instantiateTile(recordedClip);
         }
     }
 
@@ -47,7 +53,8 @@ public class VoiceRecording : MonoBehaviour
         {
             isRecording = false;
             Microphone.End(device);
-            instantiateTile(recordedClip);
+            tileAnimation.SetInteger("state", 1);
+            newTileCore.GetComponent<PlayAudioInteraction>().shouldTrigget = true;
         }
     }
 
@@ -62,11 +69,17 @@ public class VoiceRecording : MonoBehaviour
     //
     public void instantiateTile(AudioClip clip)
     {
-        GameObject newTile = Instantiate(tile) as GameObject;
+        // instantiate material, position on start recording
+        // fill in clip after recording
+
+        newTile = Instantiate(tile) as GameObject;
+        newTileCore = newTile.transform.GetChild(0).gameObject;
+
+        newTileCore.GetComponent<PlayAudioInteraction>().shouldTrigget = false;
 
         // Set render material
         int index = Random.Range(0, materials.Length - 1);
-        MeshRenderer renderer = newTile.GetComponent<MeshRenderer>();
+        MeshRenderer renderer = newTileCore.GetComponent<MeshRenderer>();
         Material[] renderMaterials = renderer.materials;
         renderMaterials[0] = materials[index];
         renderer.materials = renderMaterials;
@@ -74,13 +87,19 @@ public class VoiceRecording : MonoBehaviour
         // Set initial position and audio clip
         var tilePosition = new Vector3(this.transform.position.x, this.transform.position.y - 1.5f, this.transform.position.z);
         newTile.transform.position = tilePosition;
-        AudioSource audioSource = newTile.GetComponent<AudioSource>();
-        audioSource.playOnAwake = false; 
-        audioSource.clip = clip;
+
+        storedClip = clip;
+        setAudioClip();
+
+        // Set animator
+        tileAnimation = newTileCore.GetComponent<Animator>();
     }
 
-
-
+    public void setAudioClip(){
+        AudioSource audioSource = newTileCore.GetComponent<AudioSource>();
+        audioSource.playOnAwake = false;
+        audioSource.clip = storedClip;
+    }
 
     [ContextMenu("play")]
     public void playRecording()

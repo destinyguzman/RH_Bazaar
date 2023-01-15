@@ -5,14 +5,22 @@ using UnityEngine;
 public class PlayAudioInteraction : MonoBehaviour
 {
     public AudioSource playSound;       // Gameobject where they will be teleported to
+    public bool shouldTrigget;
 
     public void OnTriggerEnter(Collider other)
     {
-        playSound.Play();
+        if (shouldTrigget)
+        {
+            playSound.Play();
+        }
+        
     }
 
     public void OnTriggerExit(Collider other)
     {
-        playSound.Stop();
+        if (shouldTrigget)
+        {
+            playSound.Stop();
+        }
     }
 }

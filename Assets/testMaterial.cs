@@ -26,4 +26,13 @@ public class testMaterial : MonoBehaviour
         materials[0] = newMaterials[index];
         GetComponent<Renderer>().materials = materials;
     }
+
+    [ContextMenu("SetChild")]
+    void setChildMaterial()
+    {
+        GameObject child = transform.GetChild(0).gameObject;
+        Material[] materials = child.GetComponent<Renderer>().materials;
+        materials[0] = newMaterials[index];
+        child.GetComponent<Renderer>().materials = materials;
+    }
 }
