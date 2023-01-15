@@ -24,7 +24,7 @@ public class VoiceRecording : MonoBehaviour
 
     void Start()
     {
-        device = Microphone.devices[1];
+        device = Microphone.devices[0];
     }
 
     void Update()
@@ -75,7 +75,7 @@ public class VoiceRecording : MonoBehaviour
         newTile = Instantiate(tile) as GameObject;
         newTileCore = newTile.transform.GetChild(0).gameObject;
 
-        //newTileCore.GetComponent<PlayAudioInteraction>().shouldTrigget = false;
+        newTileCore.GetComponent<PlayAudioInteraction>().shouldTrigget = false;
 
         // Set render material
         int index = Random.Range(0, materials.Length - 1);
