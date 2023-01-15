@@ -14,6 +14,9 @@ public class VoiceRecording : MonoBehaviour
     private string device;
     private bool isRecording;
 
+    public Material[] materials;
+
+
     void Start()
     {
         device = Microphone.devices[1];
@@ -60,6 +63,14 @@ public class VoiceRecording : MonoBehaviour
     public void instantiateTile(AudioClip clip)
     {
         GameObject newTile = Instantiate(tile) as GameObject;
+
+        int index = Random.Range(0, materials.Length - 1);
+        MeshRenderer renderer = newTile.GetComponent<MeshRenderer>();
+        Material[] renderMaterials = renderer.materials;
+        renderMaterials[0] = materials[index];
+        renderer.materials = renderMaterials;
+
+
         var tilePosition = new Vector3(this.transform.position.x, this.transform.position.y - 1.5f, this.transform.position.z);
         newTile.transform.position = tilePosition;
         AudioSource audioSource = newTile.GetComponent<AudioSource>();

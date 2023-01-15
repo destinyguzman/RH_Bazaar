@@ -26790,6 +26790,46 @@ PrefabInstance:
       propertyPath: xrRig
       value: 
       objectReference: {fileID: 317824813}
+    - target: {fileID: 4631519540540548841, guid: b1a8091b9c785ce4d910916bb29e03bc,
+        type: 3}
+      propertyPath: materials.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631519540540548841, guid: b1a8091b9c785ce4d910916bb29e03bc,
+        type: 3}
+      propertyPath: materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 42b99369ef4934cdfa17a7440782c082, type: 2}
+    - target: {fileID: 4631519540540548841, guid: b1a8091b9c785ce4d910916bb29e03bc,
+        type: 3}
+      propertyPath: materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6cf3b0eff0eca452f8ebcfe5607184e3, type: 2}
+    - target: {fileID: 4631519540540548841, guid: b1a8091b9c785ce4d910916bb29e03bc,
+        type: 3}
+      propertyPath: materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 876370f734f52406aa59fdbcb070b1a5, type: 2}
+    - target: {fileID: 4631519540540548841, guid: b1a8091b9c785ce4d910916bb29e03bc,
+        type: 3}
+      propertyPath: materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: e5aed304651604bb9b44853437b687c5, type: 2}
+    - target: {fileID: 4631519540540548841, guid: b1a8091b9c785ce4d910916bb29e03bc,
+        type: 3}
+      propertyPath: materials.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: 657cc12f3a17d4781a818291efdac8f7, type: 2}
+    - target: {fileID: 4631519540540548841, guid: b1a8091b9c785ce4d910916bb29e03bc,
+        type: 3}
+      propertyPath: materials.Array.data[5]
+      value: 
+      objectReference: {fileID: 2100000, guid: 214da375a54be467abbd091e1c7024af, type: 2}
+    - target: {fileID: 4631519540540548841, guid: b1a8091b9c785ce4d910916bb29e03bc,
+        type: 3}
+      propertyPath: materials.Array.data[6]
+      value: 
+      objectReference: {fileID: 2100000, guid: 66f233c4b8dbe4da19f4b94f773aaed7, type: 2}
     - target: {fileID: 4631519540540548842, guid: b1a8091b9c785ce4d910916bb29e03bc,
         type: 3}
       propertyPath: m_RootOrder
@@ -46277,7 +46317,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4609310347723891847, guid: 552c497394a1e4f73b9d1938831b802a, type: 3}
+  - {fileID: 2100000, guid: de2258be48dde4f6d8d05448ffedbe27, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
