@@ -60,7 +60,8 @@ public class VoiceRecording : MonoBehaviour
     public void instantiateTile(AudioClip clip)
     {
         GameObject newTile = Instantiate(tile) as GameObject;
-        newTile.transform.position = this.transform.position;
+        var tilePosition = new Vector3(this.transform.position.x, this.transform.position.y - 1.5f, this.transform.position.z);
+        newTile.transform.position = tilePosition;
         AudioSource audioSource = newTile.GetComponent<AudioSource>();
         audioSource.playOnAwake = false; 
         audioSource.clip = clip;
