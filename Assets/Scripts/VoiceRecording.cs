@@ -71,8 +71,8 @@ public class VoiceRecording : MonoBehaviour
     {
         // instantiate material, position on start recording
         // fill in clip after recording
-
-        newTile = Instantiate(tile) as GameObject;
+        var tilePosition = new Vector3(this.transform.position.x, this.transform.position.y - 1.5f, this.transform.position.z);
+        newTile = Instantiate(tile, tilePosition, this.transform.rotation * Quaternion.Euler(0f, 180f, 0f)) as GameObject;
         newTileCore = newTile.transform.GetChild(0).gameObject;
 
         newTileCore.GetComponent<PlayAudioInteraction>().shouldTrigget = false;
@@ -85,7 +85,8 @@ public class VoiceRecording : MonoBehaviour
         renderer.materials = renderMaterials;
 
         // Set initial position and audio clip
-        var tilePosition = new Vector3(this.transform.position.x, this.transform.position.y - 1.5f, this.transform.position.z);
+
+
         newTile.transform.position = tilePosition;
 
         storedClip = clip;
